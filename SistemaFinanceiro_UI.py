@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Form(object):
+    pass
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(701, 610)
