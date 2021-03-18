@@ -1,0 +1,1 @@
+pyuic5 -x "Sistema Financeiro.ui" -o SistemaFinanceiro_UI.py
