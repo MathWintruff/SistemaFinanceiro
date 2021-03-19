@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from SistemaFinanceiro_UI import Ui_Form
 from DataClasses import *
 
@@ -36,12 +37,15 @@ def SetTableContent(self):
         data.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
         valor = QtWidgets.QTableWidgetItem(f"{emprestimo[4]} R$")
         valor.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        valorCorrigido = QtWidgets.QTableWidgetItem(f"{emprestimo[5]} R$")
+        valorCorrigido.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
 
         self.TbwEmprestimos.setItem(i, 0, Primarikey)
         self.TbwEmprestimos.setItem(i, 1, credor)
         self.TbwEmprestimos.setItem(i, 2, devedor)
         self.TbwEmprestimos.setItem(i, 3, data)
         self.TbwEmprestimos.setItem(i, 4, valor)
+        self.TbwEmprestimos.setItem(i, 5, valorCorrigido)
 
 Ui_Form.SetTableContent = SetTableContent
 
@@ -53,6 +57,14 @@ Ui_Form.EnableConfirmButton = EnableConfirmButton
 def RegisterPayment(self):
     if mainSystem.RegisterPayment(int(self.TbwEmprestimos.item(self.TbwEmprestimos.currentRow(),0).text()), self.TxbSenha.text()) == True:
         self.SetTableContent()
+    else: 
+        popupWindow = QMessageBox()
+        popupWindow.setWindowTitle ("Incorrect Password")
+        popupWindow.setText("The creditor password was incorret, try again!")
+        popupWindow.setIcon(QMessageBox.Information)
+        popupWindow.setStandardButtons(QMessageBox.Ok)
+        popupWindow.setDefaultButton(QMessageBox.Ok)
+        showPopupWindow = popupWindow.exec_()
     self.TxbSenha.setText("")
 Ui_Form.RegisterPayment = RegisterPayment
 

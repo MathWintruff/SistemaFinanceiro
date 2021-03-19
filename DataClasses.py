@@ -27,6 +27,9 @@ class Loan:
     def GetPrice(self):
         return str("{:.2f}".format(self.price))
 
+    def GetAjustedPrice(self):
+        return str("{:.2f}".format(self.price + 2))
+
 ##-----------------------------------------------------------------------------------------------------------------------------##
 
 class LoanSystem:
@@ -46,7 +49,7 @@ class LoanSystem:
         relatedLoans = list()
         for i,loan in enumerate(self.loans):
             if loan.IsRelated(creditorName, debtorName):
-                loanReference = [str(i), loan.creditor.GetName(), loan.debtor.GetName(), loan.GetData(), loan.GetPrice()]
+                loanReference = [str(i), loan.creditor.GetName(), loan.debtor.GetName(), loan.GetData(), loan.GetPrice(), loan.GetAjustedPrice()]
                 relatedLoans.append(loanReference)
         return relatedLoans
 
