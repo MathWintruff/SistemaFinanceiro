@@ -52,9 +52,8 @@ Ui_Form.EnableConfirmButton = EnableConfirmButton
 
 def RegisterPayment(self):
     if mainSystem.RegisterPayment(int(self.TbwEmprestimos.item(self.TbwEmprestimos.currentRow(),0).text()), self.TxbSenha.text()) == True:
-        pass
+        self.SetTableContent()
     self.TxbSenha.setText("")
-    self.SetTableContent()
 Ui_Form.RegisterPayment = RegisterPayment
 
 def ExecAllExtFunctions(self):

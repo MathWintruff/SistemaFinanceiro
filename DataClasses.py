@@ -25,7 +25,7 @@ class Loan:
         return str(self.data)
 
     def GetPrice(self):
-        return str(self.price)
+        return str("{:.2f}".format(self.price))
 
 ##-----------------------------------------------------------------------------------------------------------------------------##
 
@@ -67,9 +67,23 @@ class LoanSystem:
         maria = self.RegisterUser("Maria","456")
         antonio = self.RegisterUser("Antonio","789")
         jose = self.RegisterUser("Jose","147")
+        Carlos = self.RegisterUser("Carlos","458")
+        Daniela = self.RegisterUser("Daniela","753")
 
         self.RegisterLoan(self.users[0], self.users[1],"03/09/2011",10.00)
         self.RegisterLoan(self.users[2], self.users[1],"04/09/2011",12.00)
         self.RegisterLoan(self.users[2], self.users[3],"04/09/2011",5.00)
         self.RegisterLoan(self.users[2], self.users[1],"05/09/2011",3.00)
         self.RegisterLoan(self.users[3], self.users[1],"05/09/2011",18.00)
+
+        self.RegisterLoan(self.users[0], self.users[1],"09/09/2011",6.00)
+        self.RegisterLoan(self.users[2], self.users[1],"10/09/2011",25.00)
+        self.RegisterLoan(self.users[2], self.users[3],"10/09/2011",32.00)
+        self.RegisterLoan(self.users[2], self.users[1],"12/09/2011",67.00)
+        self.RegisterLoan(self.users[3], self.users[1],"15/09/2011",83.54)
+
+        self.RegisterLoan(self.users[4], self.users[5],"20/09/2011",15.50)
+        self.RegisterLoan(self.users[4], self.users[5],"21/09/2011",25.32)
+        self.RegisterLoan(self.users[5], self.users[4],"20/09/2011",120.00)
+        self.RegisterLoan(self.users[5], self.users[4],"22/09/2011",200.00)
+        self.RegisterLoan(self.users[5], self.users[4],"27/09/2011",125.00)

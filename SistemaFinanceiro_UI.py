@@ -37,7 +37,6 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.TbwEmprestimos.setFont(font)
         self.TbwEmprestimos.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.TbwEmprestimos.setAlternatingRowColors(True)
         self.TbwEmprestimos.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.TbwEmprestimos.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.TbwEmprestimos.setRowCount(1)
